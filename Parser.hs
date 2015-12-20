@@ -1,3 +1,10 @@
+module Parser 
+  ( 
+   LispVal(..),
+   run,
+   parseExpr
+  ) where
+   
 import Text.Parsec hiding (try)
 import Text.ParserCombinators.Parsec 
 import System.Environment
@@ -14,7 +21,6 @@ data LispVal = Atom String
              | Bool Bool
              | Character Char
              | Float Float
-    deriving (Show)
 
 symbol :: Parser Char
 symbol = oneOf "!#$%&|*+-/:<=>?@^_~"
